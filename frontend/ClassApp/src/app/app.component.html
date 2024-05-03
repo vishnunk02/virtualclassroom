@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-3 col-lg-2 d-md-block border-end sidebar">
+      <div class="sidebar-sticky">
+        <h2 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <a href="home">Class App</a>
+          <button class="btn btn-sm d-md-none" type="button" data-toggle="collapse" data-target="#sidebarCollapse"
+            aria-expanded="false" aria-controls="sidebarCollapse">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </h2>
+        <hr>
+        <div class="collapse d-md-block " id="sidebarCollapse">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="home">
+                Home
+              </a>
+            </li>
+            <hr>
+            <li class="nav-item">
+              <a class="nav-link" href="class">
+                Class
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="enrolled">
+                Enrolled
+              </a>
+            </li>
+          </ul>
+          <div *ngIf="user">
+            <ng-template #popContent><button class="btn" (click)="logOut()">Logout</button></ng-template>
+            <ng-template #popTitle>Hello, <b style="text-transform: capitalize;">{{ user.first_name }}</b>!</ng-template>
+            <div class="d-flex profile align-items-center" [ngbPopover]="popContent" [popoverTitle]="popTitle">
+              <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle class="stroke" cx="40" cy="40" r="20" /><text style="text-transform: capitalize;" class="text"
+                  x="40" y="40" text-anchor="middle" alignment-baseline="middle" fill="white">
+                  {{user.first_name[0]}}
+                </text>
+              </svg>
+              <h5 class="name">{{user.first_name}}</h5>
+            </div>
+          </div>
+          <div *ngIf="!user" class="d-flex profile align-items-center">
+            <a href="login"><button class="btn btn-outline-dark m-2">Login</button></a>
+            <a href="register"><button class="btn btn-outline-dark m-2">Register</button></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

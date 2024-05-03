@@ -1,0 +1,14 @@
+.head{
+    background:url('https://images.pexels.com/photos/351961/pexels-photo-351961.jpeg?cs=srgb&dl=pexels-lumn-351961.jpg&fm=jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+.container{
+    justify-content: center;
+}
+
+

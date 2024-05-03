@@ -1,0 +1,30 @@
+<h4 class="m-3">Tutor</h4>
+<table class="table table-striped m-3">
+    <tbody>
+        <tr>
+            <td>
+                <div class="circle ms-5">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="20" cy="20" r="20"/>
+                    <text class="text" x="20" y="20" text-anchor="middle" alignment-baseline="middle" fill="white" style="text-transform: capitalize;">{{classdata.user.first_name[0]}}</text>
+                </svg>
+            </div></td>
+            <td scope="row" class="name" style="text-transform: capitalize;"><strong>{{classdata.user.first_name}}</strong></td>
+        </tr>
+    </tbody>
+</table>
+<h4 class="m-3">Participants</h4>
+<table class="table table-striped m-3">
+    <tbody>
+        <tr *ngFor="let p of people">
+            <td>
+                <div class="circle ms-5">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="20" cy="20" r="20"/>
+                    <text class="text" x="20" y="20" text-anchor="middle" alignment-baseline="middle" fill="white" style="text-transform: capitalize;">{{p.user.first_name[0]}}</text>
+                </svg>
+            </div></td>
+            <td scope="row" class="name" style="text-transform: capitalize;"><strong>{{p.user.first_name}}</strong></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="card p-4 col-lg-5 col-md-12 m-2" *ngFor="let i of work">
+            <h3 class="card-title">{{i.title}}</h3>
+            <div class="d-flex">
+                <p class="card-text">{{i.due_date.slice(0,10)}}</p>
+                <p class="card-text ms-1">{{i.due_date.slice(12,16)}}</p>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-outline-dark col-lg-5 col-md-12 m-2" data-bs-toggle="modal"
+                    [attr.data-bs-target]="'#exampleModal1-' + i.id">
+                    Submit Answer
+                </button>
+                <button type="button" (click)="loadAnswer(i.id)" class="btn btn-outline-dark col-lg-5 col-md-12 m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                </button>
+            </div>
+            <div class="modal fade" [id]="'exampleModal1-' + i.id" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Submit Answer</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-4">
+                            <div>
+                                <form (ngSubmit)="uploadFile(i.id)" #storyForm="ngForm">
+                                    <input type="text" [(ngModel)]="title" name="title" placeholder="title"
+                                        class="form-control m-3">
+                                    <div class="d-flex">
+                                        <input type="file" (change)="onFileSelected($event)" class="form-control m-3"
+                                            id="formFile">
+                                        <button type="submit" class="btn" data-bs-dismiss="modal">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div *ngFor="let a of answer">
+                                <h4>{{a.title}}</h4>
+                                <h4>{{a.question.title}}</h4>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

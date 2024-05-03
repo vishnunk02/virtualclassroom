@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="card col-lg-3 col-md-12 m-2" style="width: 18rem;" *ngFor="let i of classdata; let in = index;">
+            <div class="card-img-container">
+                <img [src]="images[in]" id="image" class="card-img-top" alt="...">
+                <button class="btn more" [ngbPopover]="popContent" [popoverTitle]="popTitle"><i
+                        class="fa-solid fa-ellipsis-vertical"></i></button>
+                <ng-template #popContent><button (click)="deleteClass(i.id)" class="btn">Leave</button></ng-template>
+                <ng-template #popTitle>Options</ng-template>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{i.title}}</h5>
+                <p class="card-text">{{i.description}}</p>
+                <button (click)="getClassUn(i.id)" class="btn btn-primary">Visit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="img-div" *ngIf="classdata==0">
+    <div class="container">
+        <div class="row">
+            <div class="img-div">
+                <img src="https://img.freepik.com/free-vector/student-with-laptop-studying-online-course_74855-5293.jpg"
+                    alt="">
+                <div class="btn-div">
+                    <a href="createclass" class="btn btn-light m-2">Create Class</a>
+                    <a href="join" class="btn btn-primary m-2">Join Class</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

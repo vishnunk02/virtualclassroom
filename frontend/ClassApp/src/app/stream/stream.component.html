@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="head d-flex align-items-end">
+        <div class="name">
+            <h1 class="ms-5 mb-3" style="text-transform: capitalize;">{{classdata.title}}</h1>
+            <p class="ms-5 mb-3">{{classdata.course_key}}</p>
+        </div>
+    </div>
+    <div class="row p-5" *ngIf="user && classdata && user.username === classdata.user.username">
+        <div class="col-lg-5 col-md-12 card m-2 p-5">
+            <h4 class="card-title">Add Material</h4>
+            <form (ngSubmit)="uploadFile(classdata.id)" #storyForm="ngForm">
+                <input type="text" [(ngModel)]="title" name="title" placeholder="title" class="form-control">
+                <input type="file" (change)="onFileSelected($event)" class="form-control mt-2" id="formFile">
+                <button type="submit" class="btn mt-2">Submit</button>
+            </form>
+        </div>
+        <div class="col-lg-5 col-md-12 card m-2 p-5">
+            <h4 class="card-title">Add Question</h4>
+            <form (ngSubmit)="addquestion(classdata.id)" [formGroup]="form1">
+                <input type="text" formControlName="title" class="form-control" placeholder="title">
+                <input type="datetime-local" formControlName="due_date" class="form-control mt-2">
+                <input type="submit" class="btn mt-2">
+            </form>
+        </div>
+    </div>
+    <h3 class="ms-4">Course Materials</h3>
+    <div class="card p-3 mb-5 ms-4" *ngFor="let i of material">
+        <h3 class="card-title">{{i.title}}</h3>
+        <a class="btn" href="http://localhost:8000{{i.material}}" download>Download</a>
+    </div>
+</div>

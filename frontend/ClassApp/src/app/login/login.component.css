@@ -1,0 +1,21 @@
+/* Define the keyframes for the flip animation */
+@keyframes flipFromTop {
+  0% {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.flip-from-top {
+  animation: flipFromTop 0.5s ease-out;
+  margin-top: 100px;
+}
+
+.card{
+  box-shadow: 10px 10px 20px rgb(219, 219, 219);
+}

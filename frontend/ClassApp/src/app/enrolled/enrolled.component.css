@@ -1,0 +1,31 @@
+.card-img-container {
+    position: relative;
+}
+.row{
+    justify-content: center;
+}
+.container{
+    margin-top: 10vh;
+}
+@media screen and (max-width: 764px) {
+    .row {
+        margin-top: 30px;
+    }
+}
+
+.more {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.card {
+    margin: 0;
+    padding: 0;
+}
+
+.card-img-container {
+    overflow: hidden;
+    height: 150px;
+}

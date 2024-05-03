@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+.img-div {
+    text-align: center;
+
+}
+.img-div img {
+    max-width: 100%;
+    height: auto;
+}
+.btn-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 988px) {
+    .btn-div{
+        flex-direction: column;
+    }
+    .container{
+        margin-top: 200px;
+    }
+}

@@ -1,0 +1,54 @@
+.card-img-container {
+    position: relative;
+}
+.row{
+    justify-content: center;
+}
+
+@media screen and (max-width: 764px) {
+    .row {
+        margin-top: 30px;
+    }
+}
+
+.more {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.card {
+    margin: 0;
+    padding: 0;
+}
+
+.card-img-container {
+    overflow: hidden;
+    height: 150px;
+}
+.container{
+    margin-top: 10vh;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+.img-div {
+    text-align: center;
+
+}
+.img-div img {
+    max-width: 100%;
+    height: auto;
+}
+.btn-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
